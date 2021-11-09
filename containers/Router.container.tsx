@@ -6,6 +6,8 @@ import { useAppSelector } from "../redux/store";
 import { HeaderContainer } from "./Header.container";
 import { HomeContainer } from "./Home.container";
 import { SearchCity } from "./SearchCity.container";
+import { Loader } from "./Loader.container";
+import { View } from "react-native";
 
 export const Router = () => {
   const currentRoute = useAppSelector((state: RootState) => state.navigation.currentRoute);
@@ -25,6 +27,7 @@ export const Router = () => {
     <>
       <HeaderContainer />
       {renderRouter()}
+      <Loader />
     </>
   );
 }

@@ -9,7 +9,7 @@ interface IContainerProps {
 
 export const Container = ({title, children}:IContainerProps) => {
   return(
-    <View style={{padding: 16}}>
+    <View style={{padding: 16, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%'}}>
       <Title style={{marginTop: '64px', marginBottom: '64px', color: '#212121', textAlign: 'center', fontSize: 24}}>{title}</Title>
       {children}
     </View>

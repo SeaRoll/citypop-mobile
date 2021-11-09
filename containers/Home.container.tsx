@@ -12,7 +12,7 @@ interface IFullButtonProps {
 
 const FullButton = ({title, onPress}:IFullButtonProps) => {
   return (
-    <Button mode='contained' dark style={{backgroundColor: 'rgb(39, 39, 39)', marginBottom: 8}} onPress={onPress}>{title}</Button>
+    <Button mode='contained' dark style={{backgroundColor: 'rgb(39, 39, 39)', marginBottom: 8, width: '100%'}} onPress={onPress}>{title}</Button>
   );
 };
 
