@@ -13,7 +13,7 @@ export const routes = {
 export const navigationSlice = createSlice({
   name: 'posts',
   initialState: {
-    currentRoute: routes.CITY_RESULTS,
+    currentRoute: routes.SEARCH_CITY,
   },
   reducers: {
     setCurrentRoute: (state, action) => {

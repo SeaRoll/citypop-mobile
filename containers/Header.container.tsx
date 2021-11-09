@@ -9,5 +9,5 @@ export const HeaderContainer = () => {
   const currentRoute = useAppSelector((state: RootState) => state.navigation.currentRoute);
   const dispatch = useAppDispatch();
 
-  return currentRoute !== routes.HOME ? <Header title={'City Pop'} onPress={() => dispatch(goBack())} /> : null;
+  return <Header title={'City Pop'} onPress={() => dispatch(goBack())} isHome={currentRoute === routes.HOME} />;
 };

@@ -1,22 +1,32 @@
 import React from "react";
-import { TouchableOpacity } from "react-native";
-import { ArrowBackIcon, HStack, Heading, Flex } from "native-base";
+import { Appbar } from 'react-native-paper';
 
 interface IHeaderProps {
   title: string;
   onPress: () => void;
+  isHome: boolean;
 }
 
 // Display Header with title and back button
-export const Header = ({title, onPress}:IHeaderProps) => {
+export const Header = ({title, onPress, isHome}:IHeaderProps) => {
+
+  // Display back actionand title if not home page
+  const renderNotHome = () => {
+    if(!isHome) {
+      return (
+        <>
+          <Appbar.BackAction onPress={onPress} color='#ffffff' />
+          <Appbar.Content title={title} />
+        </>
+      );
+    }
+
+    return null;
+  }
+
   return(
-    <HStack>
-      <Flex direction='row' alignItems='center' justifyContent='flex-start'>
-        <TouchableOpacity onPress={onPress}>
-          <ArrowBackIcon style={{marginTop: '3px'}} />
-        </TouchableOpacity>
-        <Heading size='md'>{title}</Heading>
-      </Flex>
-    </HStack>
+    <Appbar>
+      {renderNotHome()}
+    </Appbar>
   );
 }
