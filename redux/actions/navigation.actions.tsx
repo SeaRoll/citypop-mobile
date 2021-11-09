@@ -31,6 +31,5 @@ export const goBack = () => (dispatch: Dispatch, getState: () => RootState) => {
     default:
       break;
   }
-
   dispatch(setCurrentRoute(nextRoute));
 }

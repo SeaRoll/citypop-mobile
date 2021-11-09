@@ -1,5 +1,5 @@
 import React from 'react';
-import { NativeBaseProvider, View, Center, Heading, Text, Button } from 'native-base';
+import { NativeBaseProvider, View, Center, Heading, Text } from 'native-base';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import { HeaderContainer } from './containers/Header.container';
@@ -19,11 +19,6 @@ export default function App() {
               NativeBase is a simple, modular and accessible component library that
               gives you building blocks to build you React applications.
             </Text>
-            <Button
-              onPress={() => {
-                console.log("Button pressed");
-              }}
-            >Hello</Button>
           </View>
         </Center>
       </NativeBaseProvider>
