@@ -1,21 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NativeBaseProvider, View, Center, Heading, Text, Button } from 'native-base';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+import { HeaderContainer } from './containers/Header.container';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <NativeBaseProvider>
+        <HeaderContainer />
+        <Center flex={1} px="3">
+          <View>
+            <Heading>
+              A component library for the{" "}
+              <Heading color="emerald.400">React Ecosystem</Heading>
+            </Heading>
+            <Text pt="3" fontWeight="md">
+              NativeBase is a simple, modular and accessible component library that
+              gives you building blocks to build you React applications.
+            </Text>
+            <Button
+              onPress={() => {
+                console.log("Button pressed");
+              }}
+            >Hello</Button>
+          </View>
+        </Center>
+      </NativeBaseProvider>
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
