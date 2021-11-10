@@ -9,17 +9,29 @@ import { routes } from '../redux/reducers/navigation.reducer';
 import { RootState } from '../redux/store';
 import { useAppSelector, useAppDispatch } from '../redux/store';
 
+/**
+ * Displays the results of the country and its cities
+ */
 export const CountryResult = () => {
 
   const country = useAppSelector((state: RootState) => state.data.country);
   const cities = useAppSelector((state: RootState) => state.data.cities);
   const dispatch = useAppDispatch();
 
-  console.log(cities);
-
   return(
     <Container title={country}>
-      {cities.map((city:any, index:any) => <City key={index} cityName={city.city.toUpperCase()} onPress={() => {dispatch(setSelectedCity(index)); dispatch(setCurrentRouteAction(routes.CITY_RESULTS))}} />)}
+      {
+        cities.map((city:any, index:any) => (
+          <City 
+            key={index} 
+            cityName={city.city.toUpperCase()} 
+            onPress={() => {
+              dispatch(setSelectedCity(index)); 
+              dispatch(setCurrentRouteAction(routes.CITY_RESULTS));
+            }}
+          />
+        ))
+      }
     </Container>
   );
 }

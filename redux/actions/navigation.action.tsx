@@ -22,7 +22,6 @@ export const goBack = () => (dispatch: Dispatch, getState: () => RootState) => {
       nextRoute = routes.SEARCH_COUNTRY;
       break;
     case routes.CITY_RESULTS:
-      console.log(getState().navigation.lastRoute);
       nextRoute = getState().navigation.lastRoute === routes.COUNTRY_RESULTS ? routes.COUNTRY_RESULTS : routes.SEARCH_CITY;
       break;
       case routes.SEARCH_CITY:

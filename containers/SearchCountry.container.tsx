@@ -5,6 +5,9 @@ import { Search } from '../components/Search.component';
 import { useAppDispatch } from "../redux/store";
 import { getCountry } from '../redux/actions/data.action';
 
+/**
+ * Displays the page to search for a country
+ */
 export const SearchCountry = () => {
 
   const dispatch = useAppDispatch();

@@ -5,12 +5,23 @@ import { Dispatch } from "redux";
 import { RootState } from "../store";
 import axios from "axios";
 
+/**
+ * get the city as a object from the raw city data
+ * 
+ * @param city city object containing city name and its population
+ * @returns a formatted city object with name and latest population data
+ */
 const getCityValue = (city:any) => {
   const cityTitle = city.city;
   const cityPopulation = city.populationCounts[city.populationCounts.length - 1].value;
   return {city: cityTitle, population: cityPopulation};
 }
 
+/**
+ * Search all city with the given country and sorts them by population (descending)
+ * 
+ * @param searchValue the search value to be used in the api call
+ */
 export const getCountry = (searchValue:string) => async (dispatch: Dispatch, getState: () => RootState) => {
   dispatch(setLoading(true));
 
@@ -36,10 +47,12 @@ export const getCountry = (searchValue:string) => async (dispatch: Dispatch, get
     if(city) citiesSorted.push(cityValue);
   });
 
+  // sort the cities by population
   citiesSorted.sort((city1:any, city2:any) => {
     return city2.population - city1.population;
   });
 
+  // format each population value with spaces
   citiesSorted.forEach((city:any) => {
     city.population = city.population.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
   });
@@ -50,6 +63,11 @@ export const getCountry = (searchValue:string) => async (dispatch: Dispatch, get
   dispatch(setCurrentRoute(routes.COUNTRY_RESULTS));
 }
 
+/**
+ * Search a city and redirects the user to display the population
+ * 
+ * @param searchValue the search value to be used in the api call
+ */
 export const getCity = (searchValue:string) => async (dispatch: Dispatch, getState: () => RootState) => {
   dispatch(setLoading(true));
   const res:any = await axios.post('https://countriesnow.space/api/v0.1/countries/population/cities', {

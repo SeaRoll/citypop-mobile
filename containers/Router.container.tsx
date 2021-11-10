@@ -13,6 +13,10 @@ import { View } from "react-native";
 import { SearchCountry } from "./SearchCountry.container";
 import { CountryResult } from "./CountryResult.container";
 
+/**
+ * The router container that renders the correct component based on the route
+ * from the navigation reducer to make sure that the correct component is rendered
+ */
 export const Router = () => {
   const currentRoute = useAppSelector((state: RootState) => state.navigation.currentRoute);
 

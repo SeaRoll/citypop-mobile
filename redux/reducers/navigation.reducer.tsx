@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// Routes inside application
+/**
+ * Routes that exists for the application
+ */
 export const routes = {
   HOME: 'HOME',
   SEARCH_CITY: 'SEARCH_CITY',
@@ -9,7 +11,10 @@ export const routes = {
   CITY_RESULTS: 'CITY_RESULTS',
 }
 
-// Navigation reducer
+/**
+ * Navigation slice containing the current route user is in
+ * and the last route to better the flow of the back button
+ */
 export const navigationSlice = createSlice({
   name: 'posts',
   initialState: {

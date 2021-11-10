@@ -1,6 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// Navigation reducer
+/**
+ * Data slice to handle data relating to city and country
+ * 
+ * cities: array of cities
+ * selectedCity: the index to display
+ * country: name of the country searched by the user
+ */
 export const dataSlice = createSlice({
   name: 'posts',
   initialState: {

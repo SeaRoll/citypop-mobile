@@ -3,19 +3,12 @@ import { Container } from "../components/Container.component";
 import { useAppDispatch } from "../redux/store";
 import { routes } from "../redux/reducers/navigation.reducer";
 import { setCurrentRouteAction } from "../redux/actions/navigation.action";
-import { Button } from "react-native-paper";
+import { FullButton } from "../components/FullButton.component";
 
-interface IFullButtonProps {
-  title: string;
-  onPress: () => void;
-}
-
-const FullButton = ({title, onPress}:IFullButtonProps) => {
-  return (
-    <Button mode='contained' dark style={{backgroundColor: 'rgb(39, 39, 39)', marginBottom: 8, width: '100%'}} onPress={onPress}>{title}</Button>
-  );
-};
-
+/**
+ * Displays the home page where the user can choose between
+ * searching the city or a country
+ */
 export const HomeContainer = () => {
 
   const dispatch = useAppDispatch();

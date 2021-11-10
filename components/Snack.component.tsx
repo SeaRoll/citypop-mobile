@@ -8,6 +8,13 @@ interface ISnackProps {
   dismiss: () => void
 }
 
+/**
+ * Displays a snackbar with a dismiss button
+ * 
+ * @param {boolean} visible if the snack should be visible
+ * @param {string} text the text to display
+ * @returns a snackbar
+ */
 export const Snack = ({visible, text, dismiss}:ISnackProps) => {
   return (
     <View style={styles.container}>
@@ -27,6 +34,9 @@ export const Snack = ({visible, text, dismiss}:ISnackProps) => {
   );
 };
 
+/**
+ * Styles for the snackbar
+ */
 const styles = StyleSheet.create({
   container: {
     flex: 1,
