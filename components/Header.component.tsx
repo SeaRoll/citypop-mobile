@@ -7,7 +7,14 @@ interface IHeaderProps {
   isHome: boolean;
 }
 
-// Display Header with title and back button
+/**
+ * Renders a header with a title and a back button (if not in home screen).
+ * 
+ * @param {string} title title of the header component
+ * @param {() => void} onPress when back arrow is pressed
+ * @param {boolean} isHome if the current screen is the home screen
+ * @returns header component
+ */
 export const Header = ({title, onPress, isHome}:IHeaderProps) => {
 
   // Display back actionand title if not home page
