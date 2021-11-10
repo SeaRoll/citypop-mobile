@@ -9,7 +9,7 @@ export const Loader = () => {
 
   return (
     <>
-      {isLoading ? <ActivityIndicator /> : null}
+      {isLoading ? <ActivityIndicator style={{position: 'absolute', left: 0, right: 0, bottom: 16}} /> : null}
     </>
   );
 };

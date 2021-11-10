@@ -12,7 +12,7 @@ export const SearchCity = () => {
   const [city, setCity] = React.useState('');
 
   return (
-    <Container title={'SEARCH BY\nCITY'}>
+    <Container title={'SEARCH BY CITY'}>
       <Search value={city} setValue={setCity} placeholder={'Enter a city'} onPress={() => dispatch(getCity(city))} />
     </Container>
   );

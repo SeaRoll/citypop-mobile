@@ -8,6 +8,9 @@ import { HomeContainer } from "./Home.container";
 import { SearchCity } from "./SearchCity.container";
 import { Loader } from "./Loader.container";
 import { CityResult } from "./CityResult.container";
+import { SnackContainer } from "./Snack.container";
+import { View } from "react-native";
+import { SearchCountry } from "./SearchCountry.container";
 
 export const Router = () => {
   const currentRoute = useAppSelector((state: RootState) => state.navigation.currentRoute);
@@ -16,10 +19,13 @@ export const Router = () => {
     switch(currentRoute) {
       case routes.HOME:
         return <HomeContainer />;
+      case routes.SEARCH_COUNTRY:
+        return <SearchCountry />;
       case routes.SEARCH_CITY:
         return <SearchCity />;
       case routes.CITY_RESULTS:
         return <CityResult />;
+
     }
 
     return null;
@@ -28,8 +34,11 @@ export const Router = () => {
   return (
     <>
       <HeaderContainer />
-      {renderRouter()}
-      <Loader />
+      <View style={{flex: 1}}>
+        {renderRouter()}
+        <Loader />
+        <SnackContainer />
+      </View>
     </>
   );
 }

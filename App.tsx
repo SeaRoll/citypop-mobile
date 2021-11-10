@@ -10,9 +10,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <PaperProvider>
-        <SafeAreaView>
-          <Router />
-        </SafeAreaView>
+        <Router />
       </PaperProvider>
     </Provider>
   );
