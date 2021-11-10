@@ -7,15 +7,14 @@ import { RootState } from "../store";
  * @param route route to set. should be one of the routes defined in navigation.reducer.tsx
  */
 export const setCurrentRouteAction = (route: string) => (dispatch: Dispatch, getState: () => RootState) => {
-    dispatch(setCurrentRoute(route));
+  dispatch(setLastRoute(getState().navigation.currentRoute));
+  dispatch(setCurrentRoute(route));
 }
 
 /**
  * Go back to the previous route depending on the current route
  */
 export const goBack = () => (dispatch: Dispatch, getState: () => RootState) => {
-
-  dispatch(setLastRoute(getState().navigation.currentRoute));
   let nextRoute = routes.HOME;
 
   switch(getState().navigation.currentRoute) {
@@ -23,6 +22,7 @@ export const goBack = () => (dispatch: Dispatch, getState: () => RootState) => {
       nextRoute = routes.SEARCH_COUNTRY;
       break;
     case routes.CITY_RESULTS:
+      console.log(getState().navigation.lastRoute);
       nextRoute = getState().navigation.lastRoute === routes.COUNTRY_RESULTS ? routes.COUNTRY_RESULTS : routes.SEARCH_CITY;
       break;
       case routes.SEARCH_CITY:
@@ -32,5 +32,7 @@ export const goBack = () => (dispatch: Dispatch, getState: () => RootState) => {
     default:
       break;
   }
+  
+  dispatch(setLastRoute(getState().navigation.currentRoute));
   dispatch(setCurrentRoute(nextRoute));
 }

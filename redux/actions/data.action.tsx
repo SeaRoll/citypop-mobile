@@ -1,4 +1,4 @@
-import { setCities, setSelectedCity } from "../reducers/data.reducer";
+import { setCities, setSelectedCity, setCountry } from "../reducers/data.reducer";
 import { setLoading, setError } from "../reducers/feedback.reducer";
 import { setCurrentRoute, routes } from "../reducers/navigation.reducer";
 import { Dispatch } from "redux";
@@ -44,12 +44,11 @@ export const getCountry = (searchValue:string) => async (dispatch: Dispatch, get
     city.population = city.population.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
   });
 
+  dispatch(setCountry(searchValue));
   dispatch(setCities(citiesSorted));
   dispatch(setLoading(false));
   dispatch(setCurrentRoute(routes.COUNTRY_RESULTS));
 }
-
-
 
 export const getCity = (searchValue:string) => async (dispatch: Dispatch, getState: () => RootState) => {
   dispatch(setLoading(true));
@@ -65,12 +64,8 @@ export const getCity = (searchValue:string) => async (dispatch: Dispatch, getSta
     return;
   }
 
-  const cityTitle = res.data.data.city;
-  const cityPopulation = res.data.data.populationCounts[res.data.data.populationCounts.length - 1].value.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-  dispatch(setCities([{
-    city: cityTitle,
-    population: cityPopulation
-  }]));
+  const city = getCityValue(res.data.data);
+  dispatch(setCities([city]));
   dispatch(setLoading(false));
   dispatch(setSelectedCity(0));
   dispatch(setCurrentRoute(routes.CITY_RESULTS));

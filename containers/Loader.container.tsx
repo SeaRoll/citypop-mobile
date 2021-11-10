@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator } from 'react-native-paper';
+import { ActivityIndicator, Colors } from 'react-native-paper';
 import { RootState } from '../redux/store';
 import { useAppSelector } from "../redux/store";
 
@@ -9,7 +9,7 @@ export const Loader = () => {
 
   return (
     <>
-      {isLoading ? <ActivityIndicator style={{position: 'absolute', left: 0, right: 0, bottom: 16}} /> : null}
+      {isLoading ? <ActivityIndicator style={{position: 'absolute', left: 0, right: 0, bottom: 16}} color={Colors.grey900} /> : null}
     </>
   );
 };
