@@ -7,7 +7,7 @@ import { HeaderContainer } from "./Header.container";
 import { HomeContainer } from "./Home.container";
 import { SearchCity } from "./SearchCity.container";
 import { Loader } from "./Loader.container";
-import { View } from "react-native";
+import { CityResult } from "./CityResult.container";
 
 export const Router = () => {
   const currentRoute = useAppSelector((state: RootState) => state.navigation.currentRoute);
@@ -18,6 +18,8 @@ export const Router = () => {
         return <HomeContainer />;
       case routes.SEARCH_CITY:
         return <SearchCity />;
+      case routes.CITY_RESULTS:
+        return <CityResult />;
     }
 
     return null;
