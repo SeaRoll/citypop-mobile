@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import navigationReducer from './reducers/navigation.reducer';
 import feedbackReducer from './reducers/feedback.reducer';
+import dataReducer from './reducers/data.reducer';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
 export const store = configureStore({
   reducer: {
     navigation: navigationReducer,
     feedback: feedbackReducer,
+    data: dataReducer,
   },
 })
 

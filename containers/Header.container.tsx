@@ -3,7 +3,7 @@ import { Header } from "../components/Header.component";
 import { RootState } from "../redux/store";
 import { useAppSelector, useAppDispatch } from "../redux/store";
 import { routes } from "../redux/reducers/navigation.reducer";
-import { goBack } from "../redux/actions/navigation.actions";
+import { goBack } from "../redux/actions/navigation.action";
 
 export const HeaderContainer = () => {
   const currentRoute = useAppSelector((state: RootState) => state.navigation.currentRoute);

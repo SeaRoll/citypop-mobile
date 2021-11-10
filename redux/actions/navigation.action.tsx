@@ -1,4 +1,4 @@
-import { setCurrentRoute, routes } from "../reducers/navigation.reducer";
+import { setCurrentRoute, routes, setLastRoute } from "../reducers/navigation.reducer";
 import { Dispatch } from "redux";
 import { RootState } from "../store";
 
@@ -15,14 +15,15 @@ export const setCurrentRouteAction = (route: string) => (dispatch: Dispatch, get
  */
 export const goBack = () => (dispatch: Dispatch, getState: () => RootState) => {
 
+  dispatch(setLastRoute(getState().navigation.currentRoute));
   let nextRoute = routes.HOME;
 
   switch(getState().navigation.currentRoute) {
-    case routes.SEARCH_COUNTRY_RESULTS:
+    case routes.COUNTRY_RESULTS:
       nextRoute = routes.SEARCH_COUNTRY;
       break;
     case routes.CITY_RESULTS:
-      nextRoute = routes.SEARCH_CITY;
+      nextRoute = getState().navigation.lastRoute === routes.COUNTRY_RESULTS ? routes.COUNTRY_RESULTS : routes.SEARCH_CITY;
       break;
       case routes.SEARCH_CITY:
       case routes.SEARCH_COUNTRY:

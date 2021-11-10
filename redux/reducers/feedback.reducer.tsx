@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const feedbackSlice = createSlice({
   name: 'posts',
   initialState: {
-    isLoading: true,
+    isLoading: false,
   },
   reducers: {
     setLoading: (state, action) => {

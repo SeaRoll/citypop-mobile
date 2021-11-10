@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "../components/Container.component";
 import { useAppDispatch } from "../redux/store";
 import { routes } from "../redux/reducers/navigation.reducer";
-import { setCurrentRouteAction } from "../redux/actions/navigation.actions";
+import { setCurrentRouteAction } from "../redux/actions/navigation.action";
 import { Button } from "react-native-paper";
 
 interface IFullButtonProps {
