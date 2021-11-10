@@ -18,7 +18,7 @@ export const getCountry = (searchValue:string) => async (dispatch: Dispatch, get
     order: 'desc',
     orderBy: 'population',
     country: searchValue
-  }).catch((err) => {
+  }).catch(() => {
     dispatch(setError('Error: Country was not found'));
     dispatch(setLoading(false));
     return null;
@@ -54,7 +54,7 @@ export const getCity = (searchValue:string) => async (dispatch: Dispatch, getSta
   dispatch(setLoading(true));
   const res:any = await axios.post('https://countriesnow.space/api/v0.1/countries/population/cities', {
     city: searchValue
-  }).catch((err) => {
+  }).catch(() => {
     dispatch(setError('Error: City was not found'));
     dispatch(setLoading(false));
     return null;
