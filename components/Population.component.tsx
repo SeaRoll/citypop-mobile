@@ -13,7 +13,7 @@ interface IPopulationProps {
  * @returns population card
  */
 export const Population = ({ population }:IPopulationProps) => (
-  <Card style={{width: '100%'}}>
+  <Card style={{width: '100%', backgroundColor: 'rgb(39, 39, 39)'}}>
     <Card.Content>
       <Title style={styles.title}>Population</Title>
       <Title style={styles.populationText}>{population}</Title>

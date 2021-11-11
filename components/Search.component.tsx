@@ -34,8 +34,8 @@ export const Search = ({value, placeholder, setValue, onPress}:ISearchProps) => 
       />
       <IconButton
         icon="magnify"
-        size={24}
-        color="black"
+        color={'#ffffff'}
+        size={20}
         onPress={onPress}
         style={styles.icon}
       />
@@ -60,9 +60,10 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   icon: {
+    backgroundColor: Colors.grey900,
     borderColor: Colors.grey500, 
     borderWidth: 1, 
     borderRadius: 100, 
-    padding: 24
+    padding: 24,
   }
 });

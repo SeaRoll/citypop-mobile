@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Title } from 'react-native-paper';
+import { Title, Provider } from 'react-native-paper';
 
 interface IContainerProps {
   title: string,
@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   title: {
-    marginTop: '32px', 
-    marginBottom: '32px', 
+    marginTop: 32, 
+    marginBottom: 32, 
     color: '#212121', 
     textAlign: 'center', 
     fontSize: 24

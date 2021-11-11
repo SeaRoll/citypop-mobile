@@ -32,7 +32,7 @@ export const Header = ({title, onPress, isHome}:IHeaderProps) => {
   }
 
   return(
-    <Appbar>
+    <Appbar style={{backgroundColor: 'rgb(39, 39, 39)'}}>
       {renderNotHome()}
     </Appbar>
   );

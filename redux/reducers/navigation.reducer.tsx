@@ -18,7 +18,7 @@ export const routes = {
 export const navigationSlice = createSlice({
   name: 'posts',
   initialState: {
-    currentRoute: routes.SEARCH_CITY,
+    currentRoute: routes.HOME,
     lastRoute: routes.HOME,
   },
   reducers: {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { ScrollView } from 'react-native';
 
 import { City } from '../components/City.component';
 import { Container } from '../components/Container.component';
@@ -19,19 +20,21 @@ export const CountryResult = () => {
   const dispatch = useAppDispatch();
 
   return(
-    <Container title={country}>
-      {
-        cities.map((city:any, index:any) => (
-          <City 
-            key={index} 
-            cityName={city.city.toUpperCase()} 
-            onPress={() => {
-              dispatch(setSelectedCity(index)); 
-              dispatch(setCurrentRouteAction(routes.CITY_RESULTS));
-            }}
-          />
-        ))
-      }
-    </Container>
+    <ScrollView>
+      <Container title={country}>
+        {
+          cities.map((city:any, index:any) => (
+            <City 
+              key={index} 
+              cityName={city.city.toUpperCase()} 
+              onPress={() => {
+                dispatch(setSelectedCity(index)); 
+                dispatch(setCurrentRouteAction(routes.CITY_RESULTS));
+              }}
+            />
+          ))
+        }
+      </Container>
+    </ScrollView>
   );
 }

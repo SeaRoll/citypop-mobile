@@ -15,7 +15,7 @@ interface ICityProps {
  * @returns a view with a card with the city name
  */
 export const City = ({ cityName, onPress }:ICityProps) => (
-  <Card style={{width: '100%', marginBottom: '8px'}} onPress={onPress}>
+  <Card style={{width: '100%', marginBottom: 8, backgroundColor: 'rgb(39, 39, 39)'}} onPress={onPress}>
     <Card.Content>
       <Title style={{textAlign: 'center', color: Colors.grey50}}>{cityName}</Title>
     </Card.Content>
